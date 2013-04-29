@@ -11,6 +11,10 @@ class RViewController <UIViewController
     self.view.on_swipe(direction:UISwipeGestureRecognizerDirectionRight) { |swipe|
       swipe_right
     }
+
+    self.view.on_tap { |tap|
+      swipe_left
+    }
   end
 
   def viewWillAppear(animated)
@@ -27,11 +31,12 @@ class RViewController <UIViewController
   end
 
   def swipe_left
-    # this method is meant to be override by subclass
+    # this method is meant to be overridden by subclass
     puts 'swipe left'
   end
 
   def swipe_right
+    puts 'swipe right'
     app_delegate.pop
   end
 

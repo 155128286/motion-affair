@@ -14,7 +14,6 @@ class AppDelegate
     @router = Routable::Router.router
     @router.navigation_controller = UINavigationController.new
 
-      # Router Mapping
       @router.map 'p0', P0ViewController
       @router.map 'p1', P1ViewController
       @router.map 'p2', P2ViewController
