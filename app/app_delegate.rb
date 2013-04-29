@@ -2,15 +2,22 @@ class AppDelegate
 
   def application(application, didFinishLaunchingWithOptions:launchOptions)
     @window = UIWindow.alloc.initWithFrame UIScreen.mainScreen.bounds
-    @window.backgroundColor = UIColor.whiteColor
     @window.makeKeyAndVisible
 
-    label = UILabel.alloc.initWithFrame @window.bounds
-    label.font = UIFont.systemFontOfSize 32
-    label.text = 'Hello World'
-    @window.addSubview label
+    map_router_urls
+    @router.open 'Intro'
 
     true
+  end
+
+  def map_router_urls
+    @router = Routable::Router.router
+    @router.navigation_controller = UINavigationController.new
+
+      # Router Mapping
+      @router.map 'Intro', IntroViewController
+
+    @window.rootViewController = @router.navigation_controller
   end
 
 end
