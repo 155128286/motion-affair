@@ -2,14 +2,14 @@ class RViewController <UIViewController
 
   def loadView
     super
-    self.view.backgroundColor = self.view.backgroundColor = 0x393939.uicolor
+    self.view.backgroundColor = 0x393939.uicolor
 
     self.view.on_swipe(direction:UISwipeGestureRecognizerDirectionLeft) { |swipe|
-      swipe_left swipe
+      swipe_left
     }
 
     self.view.on_swipe(direction:UISwipeGestureRecognizerDirectionRight) { |swipe|
-      swipe_right swipe
+      swipe_right
     }
   end
 
@@ -22,14 +22,17 @@ class RViewController <UIViewController
     true
   end
 
-  def swipe_left(swipe)
+  def app_delegate
+    UIApplication.sharedApplication.delegate
+  end
+
+  def swipe_left
     # this method is meant to be override by subclass
     puts 'swipe left'
   end
 
-  def swipe_right(swipe)
-    # this method is meant to be override by subclass
-    puts 'swipe right'
+  def swipe_right
+    app_delegate.pop
   end
 
   def v_width
