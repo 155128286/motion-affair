@@ -14,6 +14,9 @@ Motion::Project::App.setup do |app|
   app.interface_orientations = [:landscape_left, :landscape_right]
   app.info_plist['UIStatusBarHidden'] = true
 
+  app.frameworks += %w(QuartzCore,
+                       CoreGraphics)
+
   app.pods do
     pod 'Colours'
   end
