@@ -19,6 +19,7 @@ Motion::Project::App.setup do |app|
 
   app.pods do
     pod 'Colours'
+    pod 'SVProgressHUD'
   end
 
 end

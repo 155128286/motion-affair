@@ -40,11 +40,16 @@ class RImageScrollView <UIView
     @image_view.frame = [[0, 0], @image.size]
     @image_scroll.contentSize = @image.size
 
-    view_width = @image_scroll.bounds.size.height
+    view_width = @image_scroll.bounds.size.width
     image_width = @image.size.width
+    width_factor = view_width/image_width
+
+    view_height = @image_scroll.bounds.size.height
+    image_height = @image.size.height
+    height_factor = view_height/image_height
 
     max_scale = 1.0
-    min_scale = view_width/image_width
+    min_scale = [width_factor, height_factor].min
 
     @image_scroll.setMaximumZoomScale max_scale
     @image_scroll.setMinimumZoomScale min_scale
@@ -54,8 +59,6 @@ class RImageScrollView <UIView
   end
 
   def center_scroll_if_needed
-    __LINE__
-
     if @image_scroll.contentSize.height < @image_scroll.bounds.size.height
       content_offset = @image_scroll.contentOffset
       content_offset.y = - (@image_scroll.bounds.size.height - @image_scroll.contentSize.height) / 2.0
