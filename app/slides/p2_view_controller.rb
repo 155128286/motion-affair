@@ -1,21 +1,20 @@
 class P2ViewController <RViewController
 
-  def loadView
-    super
-
-    view_frame = [[30, 30], [v_width-60, v_height-60]]
-    @web_view = RWebView.web_view_at view_frame
-    self.view << @web_view
-  end
-
   def viewWillAppear(animated)
     super
-    @web_view.set_shadow_path
+    SVProgressHUD.showWithStatus 'Loading Big Ass Image'
   end
 
   def viewDidAppear(animated)
     super
-    @web_view.load_page 'http://rubymotion-wrappers.com/'
+
+    Dispatch::Queue.concurrent.async do
+      image_scroll_view = RImageScrollView.image_scroll_view_at self.view.bounds, 'horizen_Mosaic_edit.png'.uiimage
+      Dispatch::Queue.main.sync do
+        self.view << image_scroll_view
+        SVProgressHUD.dismiss
+      end
+    end
   end
 
   def swipe_left

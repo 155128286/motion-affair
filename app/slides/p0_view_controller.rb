@@ -3,7 +3,7 @@ class P0ViewController <RViewController
   def loadView
     super
 
-    title = RLabel.bold_label_at [[0, 200], [v_width, 350]], 'RubyMotion'
+    title = RLabel.bold_label_at [[0, 200], [v_width, 200]], 'RubyMotion'
     self.view << title
 
     sub_title = RLabel.label_at [[0, 400], [v_width, 100]], 'Make baby with Objective-C'

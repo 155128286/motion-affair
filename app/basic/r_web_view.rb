@@ -21,6 +21,14 @@ class RWebView <UIView
       @web_view = UIWebView.alloc.initWithFrame self.bounds
       @web_view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth
       self << @web_view
+
+      back_button = UIButton.custom
+      back_button.frame = [[20, 20], [50, 50]]
+      back_button.setImage('back.png'.uiimage, forState:UIControlStateNormal)
+      back_button.on(:touch) {
+        @web_view.goBack
+      }
+      self << back_button
     end
 
     self

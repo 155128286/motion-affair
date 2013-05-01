@@ -7,7 +7,7 @@ class RLabel <UILabel
     label.font = 'Courier'.uifont 40
     label.textColor = :white.uicolor
     label.backgroundColor = UIColor.clearColor
-    label.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth
+    label.autoresizingMask = UIViewAutoresizingFlexibleWidth
 
     label
   end
