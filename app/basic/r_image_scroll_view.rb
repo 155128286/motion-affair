@@ -1,8 +1,8 @@
-class RImageScrollView <UIView
+class RImageScrollView <RFullScreenView
 
-  def self.image_scroll_view_at(frame, image)
+  def self.image_scroll_view_at(frame, image=nil)
     container = RImageScrollView.alloc.initWithFrame frame
-    container.image = image
+    container.image = image unless image.nil?
     container
   end
 
@@ -10,8 +10,6 @@ class RImageScrollView <UIView
 
   def initWithFrame(frame)
     if super frame
-      self.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth
-
       @image_scroll = UIScrollView.alloc.initWithFrame self.bounds
       @image_scroll.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth
       @image_scroll.delegate = self
@@ -19,12 +17,17 @@ class RImageScrollView <UIView
       @image_scroll.showsVerticalScrollIndicator = false
       self << @image_scroll
 
+      @image_view = UIImageView.alloc.initWithFrame CGRectZero
+      @image_view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth
+      @image_scroll << @image_view
+
       double_tap = UITapGestureRecognizer.alloc.initWithTarget self, action:'double_tapped:'
       double_tap.numberOfTapsRequired = 2
       self.addGestureRecognizer double_tap
 
-      @image_view = UIImageView.alloc.initWithFrame CGRectZero
-      @image_scroll << @image_view
+      single_tap = UITapGestureRecognizer.alloc.initWithTarget self, action:'single_tapped:'
+      single_tap.requireGestureRecognizerToFail double_tap
+      self.addGestureRecognizer single_tap
     end
 
     self
@@ -88,6 +91,12 @@ class RImageScrollView <UIView
       @image_scroll.zoomToRect(tap_rect, animated:true)
     else
       @image_scroll.setZoomScale(@image_scroll.minimumZoomScale, animated:true)
+    end
+  end
+
+  def single_tapped(sender)
+    if self.next && @image_scroll.zoomScale == @image_scroll.minimumZoomScale
+      self.next.call()
     end
   end
 

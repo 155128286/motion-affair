@@ -1,9 +1,11 @@
-class P3ViewController <UIViewController
+class P3ViewController <RViewController
 
   def loadView
     super
 
     @web_view = RWebView.web_view_at self.view.bounds
+    @web_view.next = lambda { swipe_left }
+    @web_view.previous = lambda { swipe_right }
     self.view << @web_view
   end
 

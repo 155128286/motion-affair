@@ -1,4 +1,4 @@
-class RWebView <UIView
+class RWebView <RFullScreenView
 
   def self.web_view_at(frame)
     web_view = RWebView.alloc.initWithFrame frame
@@ -7,8 +7,6 @@ class RWebView <UIView
 
   def initWithFrame(frame)
     if super frame
-      self.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth
-
       @shadow_view = UIView.alloc.initWithFrame self.bounds
       @shadow_view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth
       @shadow_view.backgroundColor = :white.uicolor

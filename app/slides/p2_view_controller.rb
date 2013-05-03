@@ -1,17 +1,17 @@
 class P2ViewController <RViewController
 
-  def viewWillAppear(animated)
+  def loadView
     super
-    SVProgressHUD.showWithStatus 'Loading Big Ass Image'
-  end
 
-  def viewDidAppear(animated)
-    super
+    SVProgressHUD.showWithStatus 'Loading Big Ass Image'
+    @image_scroll_view = RImageScrollView.image_scroll_view_at [[0, 0], [1024, 768]]  # Hard coded due to UIScrollView autoresizing problem
+    @image_scroll_view.next = lambda { swipe_left }
+    @image_scroll_view.previous = lambda { swipe_right }
 
     Dispatch::Queue.concurrent.async do
-      image_scroll_view = RImageScrollView.image_scroll_view_at self.view.bounds, 'horizen_Mosaic_edit.png'.uiimage
+      @image_scroll_view.image = 'horizen_Mosaic_edit.png'.uiimage
       Dispatch::Queue.main.sync do
-        self.view << image_scroll_view
+        self.view << @image_scroll_view
         SVProgressHUD.dismiss
       end
     end
