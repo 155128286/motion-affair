@@ -18,6 +18,8 @@ class AppDelegate
       @router.map 'p1', P1ViewController
       @router.map 'p2', P2ViewController
       @router.map 'p3', P3ViewController
+      @router.map 'p10', P10ViewController
+      @router.map 'end', EndViewController
 
     @window.rootViewController = @router.navigation_controller
   end

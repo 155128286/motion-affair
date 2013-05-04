@@ -41,11 +41,15 @@ class RViewController <UIViewController
   end
 
   def v_width
-    self.view.frame.size.width
+    1024
   end
 
   def v_height
-    self.view.frame.size.height
+    768
+  end
+
+  def center_frame_with_size(size)
+    [[(v_width-size[0])/2, (v_height-size[1])/2], size]
   end
 
 end

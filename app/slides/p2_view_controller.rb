@@ -4,7 +4,7 @@ class P2ViewController <RViewController
     super
 
     SVProgressHUD.showWithStatus 'Loading Big Ass Image'
-    @image_scroll_view = RImageScrollView.image_scroll_view_at [[0, 0], [1024, 768]]  # Hard coded due to UIScrollView autoresizing problem
+    @image_scroll_view = RImageScrollView.image_scroll_view_at [[0, 0], [1024, 768]]
     @image_scroll_view.next = lambda { swipe_left }
     @image_scroll_view.previous = lambda { swipe_right }
 
