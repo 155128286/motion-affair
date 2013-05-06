@@ -11,11 +11,6 @@ class P10ViewController <RViewController
 
   def viewWillAppear(animated)
     super
-    @web_view.set_shadow_path
-  end
-
-  def viewDidAppear(animated)
-    super
     @web_view.load_page 'http://rubymotion-wrappers.com/'
   end
 

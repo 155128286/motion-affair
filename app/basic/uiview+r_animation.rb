@@ -22,7 +22,7 @@ class UIView
     tapped completion, 0.3
   end
 
-  def pop_in(completion=nil)
+  def close_in(completion=nil)
     UIView.animateWithDuration(0.1, animations:lambda {
       self.transform = CGAffineTransformMakeScale(ENLARGE_FACTOR, ENLARGE_FACTOR)
     }, completion:lambda {|finished|
