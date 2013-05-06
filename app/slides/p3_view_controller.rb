@@ -3,6 +3,20 @@ class P3ViewController <RViewController
   def loadView
     super
 
+    @lrz = RImageView.image_view_at [[430, 270], [200, 200]], 'lrz.jpg'.uiimage, true
+    @lrz.alpha = 0.0
+    @lrz.on_tap {
+      @lrz.tapped
+    }
+    self.view << @lrz
+
+    @watson = RImageView.image_view_at [[680, 270], [200, 200]], 'watson.jpg'.uiimage, true
+    @watson.alpha = 0.0
+    @watson.on_tap {
+      @watson.tapped
+    }
+    self.view << @watson
+
     @mac_ruby = layout_icon 'mac_ruby.png', 'MacRuby'
     @mac_ruby.alpha = 0.0
     @mac_ruby.on_tap {
@@ -12,7 +26,7 @@ class P3ViewController <RViewController
 
     @rubymotion = layout_icon 'rubymotion.png', 'Rubymotion'
     @rubymotion.on_tap {
-      if @rubymotion.frame.origin.x == 60
+      if @rubymotion.frame.origin.x == 100
         close
       else
         open
@@ -22,15 +36,18 @@ class P3ViewController <RViewController
   end
 
   def open
-    @rubymotion.move_to [60, 60]
+    @rubymotion.move_to [100, 120]
     @mac_ruby.change_alpha 1.0
-    @mac_ruby.move_to [60, 400]
+    @mac_ruby.move_to [100, 390]
+    @lrz.pop_out(lambda {|finished| @watson.pop_out})
   end
 
   def close
     @rubymotion.move_to center_frame_with_size([200, 235])[0]
     @mac_ruby.change_alpha 0.0
     @mac_ruby.move_to center_frame_with_size([200, 235])[0]
+    @lrz.pop_in
+    @watson.pop_in
   end
 
   def layout_icon(image_name, text)

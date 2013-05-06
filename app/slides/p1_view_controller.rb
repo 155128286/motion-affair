@@ -3,7 +3,7 @@ class P1ViewController <RViewController
   def loadView
     super
 
-    image_view = RImageView.image_view_at self.view.frame, 'p1'.uiimage
+    image_view = RImageView.image_view_at center_frame_with_size([1024, 760]), 'p1'.uiimage
     self.view << image_view
   end
 
