@@ -3,20 +3,6 @@ class P3ViewController <RViewController
   def loadView
     super
 
-    @lrz_name = RLabel.bold_label_at [[430, 480], [200, 75]], 'Laurent Sansonetti'
-    @lrz_name.bold_font_size = 32
-    @lrz_name.numberOfLines = 2
-    @lrz_name.alpha = 0.0
-    self.view << @lrz_name
-
-    @lrz = RImageView.image_view_at [[430, 270], [200, 200]], 'lrz.jpg'.uiimage, true
-    @lrz.alpha = 0.0
-    @lrz.on_tap {
-      @lrz.tapped
-      @lrz_name.change_alpha 1.0
-    }
-    self.view << @lrz
-
     @watson_name = RLabel.bold_label_at [[680, 480], [200, 75]], 'Watson'
     @watson_name.bold_font_size = 32
     @watson_name.numberOfLines = 2
@@ -30,6 +16,20 @@ class P3ViewController <RViewController
       @watson_name.change_alpha 1.0
     }
     self.view << @watson
+
+    @lrz_name = RLabel.bold_label_at [[430, 480], [200, 75]], 'Laurent Sansonetti'
+    @lrz_name.bold_font_size = 32
+    @lrz_name.numberOfLines = 2
+    @lrz_name.alpha = 0.0
+    self.view << @lrz_name
+
+    @lrz = RImageView.image_view_at [[430, 270], [200, 200]], 'lrz.jpg'.uiimage, true
+    @lrz.alpha = 0.0
+    @lrz.on_tap {
+      @lrz.tapped
+      @lrz_name.change_alpha 1.0
+    }
+    self.view << @lrz
 
     @mac_ruby = layout_icon 'mac_ruby.png', 'MacRuby'
     @mac_ruby.alpha = 0.0
@@ -53,7 +53,7 @@ class P3ViewController <RViewController
     @rubymotion.move_to [100, 120]
     @mac_ruby.change_alpha 1.0
     @mac_ruby.move_to [100, 390]
-    @lrz.pop_out(lambda {|finished| @watson.pop_out})
+    @lrz.pop_out(lambda {@watson.pop_out})
   end
 
   def close(completion=nil)
@@ -62,7 +62,7 @@ class P3ViewController <RViewController
     @mac_ruby.move_to center_frame_with_size([200, 235])[0]
     @lrz.close_in
     @lrz_name.change_alpha 0.0
-    @watson.close_in completion
+    @watson.close_in [430, 270], completion
     @watson_name.change_alpha 0.0
   end
 
@@ -81,7 +81,7 @@ class P3ViewController <RViewController
   end
 
   def swipe_left
-    close(lambda {|finished| app_delegate.open 'p10'})
+    close(lambda {app_delegate.open 'p4'})
   end
 
 end
