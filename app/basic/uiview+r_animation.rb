@@ -26,14 +26,14 @@ class UIView
     tapped 0.3, completion
   end
 
-  def close_in(to_point=nil, completion=nil)
+  def close_in(completion=nil, duration=0.3, to_point=nil)
     old_frame = self.frame
     UIView.animateWithDuration(0.1, animations:lambda {
       self.frame = [to_point, self.frame.size] unless to_point.nil?
       self.transform = CGAffineTransformMakeScale(ENLARGE_FACTOR, ENLARGE_FACTOR)
     }, completion:lambda {|finished|
       if finished
-        UIView.animateWithDuration(0.3, animations:lambda {
+        UIView.animateWithDuration(duration, animations:lambda {
           self.transform = CGAffineTransformMakeScale(SMALL_FACTOR, SMALL_FACTOR)
           self.change_alpha 0.0
         }, completion:lambda { |finished|

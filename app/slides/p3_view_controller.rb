@@ -62,7 +62,7 @@ class P3ViewController <RViewController
     @mac_ruby.move_to center_frame_with_size([200, 235])[0]
     @lrz.close_in
     @lrz_name.change_alpha 0.0
-    @watson.close_in [430, 270], completion
+    @watson.close_in completion, 0.3, [430, 270]
     @watson_name.change_alpha 0.0
   end
 
