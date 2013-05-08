@@ -9,7 +9,7 @@ class P3ViewController <RViewController
     @watson_name.alpha = 0.0
     self.view << @watson_name
 
-    @watson = RImageView.image_view_at [[680, 270], [200, 200]], 'watson.jpg'.uiimage, true
+    @watson = RImageView.image_view_at [[680, 270], [200, 200]], 'watson.jpg', true
     @watson.alpha = 0.0
     @watson.on_tap {
       @watson.tapped
@@ -23,7 +23,7 @@ class P3ViewController <RViewController
     @lrz_name.alpha = 0.0
     self.view << @lrz_name
 
-    @lrz = RImageView.image_view_at [[430, 270], [200, 200]], 'lrz.jpg'.uiimage, true
+    @lrz = RImageView.image_view_at [[430, 270], [200, 200]], 'lrz.jpg', true
     @lrz.alpha = 0.0
     @lrz.on_tap {
       @lrz.tapped
@@ -70,7 +70,7 @@ class P3ViewController <RViewController
     icon = UIView.alloc.initWithFrame center_frame_with_size([200, 235])
     icon.backgroundColor = UIColor.clearColor
 
-    image = RImageView.image_view_at [[10, 10], [180, 180]], image_name.uiimage
+    image = RImageView.image_view_at [[10, 10], [180, 180]], image_name
     icon << image
 
     label = RLabel.bold_label_at [[0, 190], [200, 40]], text

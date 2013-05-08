@@ -5,7 +5,7 @@ class RImageView <UIView
   def self.image_view_at(frame, image, rounded=false, radius=nil)
     container = RImageView.alloc.initWithFrame frame
 
-    image_view = UIImageView.alloc.initWithImage image
+    image_view = UIImageView.alloc.initWithImage image.uiimage
     image_view.frame = [[0, 0], frame[1]]
     image_view.contentMode = UIViewContentModeScaleAspectFit
     container << image_view

@@ -48,14 +48,14 @@ class P4ViewController <RViewController
     @xyq.close_in lambda{
       @basecamp.close_in lambda {
         @ever_clip.close_in lambda {
-          app_delegate.open 'p10'
+          app_delegate.open 'p5'
         }, 0.2
       }, 0.2
     }, 0.2
   end
 
   def apps_at(origin, name)
-    app = RImageView.image_view_at [origin, [175, 175]], name.uiimage, true, 30.0
+    app = RImageView.image_view_at [origin, [175, 175]], name, true, 30.0
     app.alpha = 0.0
     app
   end

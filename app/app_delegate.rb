@@ -19,6 +19,7 @@ class AppDelegate
       @router.map 'p2', P2ViewController
       @router.map 'p3', P3ViewController
       @router.map 'p4', P4ViewController
+      @router.map 'p5', P5ViewController
       @router.map 'p10', P10ViewController
       @router.map 'end', EndViewController
 
