@@ -12,7 +12,6 @@ class UIView
     }
   end
 
-
   ENLARGE_FACTOR = 1.2
   SMALL_FACTOR = 0.01
 
