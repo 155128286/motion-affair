@@ -142,4 +142,10 @@ class RSegmentedControl <UIControl
     label.text = text
   end
 
+  def show_text
+    change_text @first_label, self.first_long_text
+    change_text @second_label, self.second_short_text
+    change_text @third_label, self.third_short_text
+  end
+
 end

@@ -22,7 +22,7 @@ class P5ViewController <RViewController
 
   def viewDidAppear(animated)
     super
-    @segmented_control.move_to [0, 0]
+    @segmented_control.move_to [0, 0], lambda {@segmented_control.show_text}
   end
 
   def valueChanged(sender)
@@ -34,7 +34,10 @@ class P5ViewController <RViewController
   end
 
   def swipe_right
-    @segmented_control.move_to [0, -CONTROL_HEIGHT], lambda {super}
+    @segmented_control.move_to [0, -CONTROL_HEIGHT], lambda {
+      @segmented_control.select 0
+      super
+    }
   end
 
 end
