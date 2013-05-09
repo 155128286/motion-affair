@@ -8,6 +8,15 @@ class UIView
     }
   end
 
+  def change_frame(frame, completion=nil, duration=0.3)
+    UIView.animateWithDuration duration, animations:lambda {
+      self.center = r_center frame
+      self.bounds = [[0, 0], frame[1]]
+    }, completion:lambda { |finished|
+      completion.call() unless completion.nil?
+    }
+  end
+
   def change_alpha(alpha, completion=nil)
     UIView.animateWithDuration 0.3, animations:lambda {
       self.alpha = alpha
