@@ -5,11 +5,18 @@ class P5ViewController <RViewController
   def loadView
     super
 
-    @llvm_ruby = RImageView.image_view_at center_frame_with_size([512, 512]), 'llvm_ruby.png'
+    @llvm_ruby = RImageView.image_view_at center_frame_with_size([1024, 1024]), 'llvm_ruby.png'
+    @llvm_ruby.alpha = 0.05
     self.view << @llvm_ruby
 
     @segmented_control = RSegmentedControl.alloc.initWithFrame [[0, -CONTROL_HEIGHT], [v_width, CONTROL_HEIGHT]]
     @segmented_control.addTarget self, action:'valueChanged:', forControlEvents:UIControlEventValueChanged
+    @segmented_control.first_long_text = 'it\'s a runtime'
+    @segmented_control.first_short_text = 'runtime'
+    @segmented_control.second_long_text = 'an implementation of ruby'
+    @segmented_control.second_short_text = 'ruby'
+    @segmented_control.third_long_text = 'it\'s also a compiler'
+    @segmented_control.third_short_text = 'compiler'
     self.view << @segmented_control
   end
 
