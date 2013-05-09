@@ -20,7 +20,10 @@ class AppDelegate
       @router.map 'p3', P3ViewController
       @router.map 'p4', P4ViewController
       @router.map 'p5', P5ViewController
-      @router.map 'p10', P10ViewController
+      @router.map 'p6', P6ViewController
+      @router.map 'p7', P7ViewController
+      @router.map 'p8', P8ViewController
+      @router.map 'p9', P9ViewController
       @router.map 'end', EndViewController
 
     @window.rootViewController = @router.navigation_controller

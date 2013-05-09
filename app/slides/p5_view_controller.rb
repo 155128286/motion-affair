@@ -8,7 +8,7 @@ class P5ViewController <RViewController
   end
 
   def swipe_left
-    app_delegate.open 'p10'
+    app_delegate.open 'p6'
   end
 
 end

@@ -1,4 +1,4 @@
-class P10ViewController <RViewController
+class P7ViewController <RViewController
 
   def loadView
     super
@@ -15,7 +15,7 @@ class P10ViewController <RViewController
   end
 
   def swipe_left
-    app_delegate.open 'end'
+    app_delegate.open 'p8'
   end
 
 end
