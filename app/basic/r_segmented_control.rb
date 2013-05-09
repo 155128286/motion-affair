@@ -53,8 +53,8 @@ class RSegmentedControl <UIControl
           @second.change_frame [[@long_width - ANIMATION_OFFSET, 0], [@short_width, r_height(self.frame)+VISUAL_OFFSET]], send_action, OFFSET_DURATION
         }, OFFSET_DURATION
       when SECOND
-        @second.change_frame [[@short_width - ANIMATION_OFFSET/2, 0], [@long_width + ANIMATION_OFFSET, r_height(self.frame)+VISUAL_OFFSET]], lambda {
-          @second.change_frame [[@short_width, 0], [@long_width, r_height(self.frame)+VISUAL_OFFSET]], send_action, OFFSET_DURATION
+        @second.change_frame [[@short_width, 0], [@long_width, r_height(self.frame)+VISUAL_OFFSET]], lambda {
+          @second.change_frame [[@short_width + ANIMATION_OFFSET, 0], [@long_width - 2*ANIMATION_OFFSET, r_height(self.frame)+VISUAL_OFFSET]], send_action, OFFSET_DURATION
         }, OFFSET_DURATION
       when THIRD
         @second.change_frame [[@short_width + ANIMATION_OFFSET/2, 0], [@short_width - ANIMATION_OFFSET/2, r_height(self.frame)+VISUAL_OFFSET]], lambda {
