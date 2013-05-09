@@ -3,7 +3,7 @@ class EndViewController <RViewController
   def loadView
     super
 
-    q_n_a = RLabel.bold_label_at center_frame_with_size([300, 100]), 'Demo'
+    q_n_a = RLabel.bold_label_at center_frame_with_size([300, 100]), 'demo'
     self.view << q_n_a
 
     label = RLabel.label_at [[600, 720], [400, 20]], 'Back icon designed by SuperAtic LABS from The Noun Project'

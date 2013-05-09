@@ -58,4 +58,26 @@ class UIView
     })
   end
 
+  def r_width(frame)
+    frame[1][0]
+  end
+
+  def r_height(frame)
+    frame[1][1]
+  end
+
+  def r_x(frame)
+    frame[0][0]
+  end
+
+  def r_y(frame)
+    frame[0][1]
+  end
+
+  def r_center(frame)
+    x = r_x(frame) + r_width(frame)/2
+    y = r_y(frame) + r_height(frame)/2
+    [x, y]
+  end
+
 end
