@@ -40,18 +40,24 @@ class P4ViewController <RViewController
     }
   end
 
-  def swipe_left
+  def close(completion)
     @ever_clip_name.change_alpha 0.0
     @basecamp_name.change_alpha 0.0
     @xyq_name.change_alpha 0.0
 
     @xyq.close_in lambda{
       @basecamp.close_in lambda {
-        @ever_clip.close_in lambda {
-          app_delegate.open 'p5'
-        }, 0.2
+        @ever_clip.close_in completion, 0.2
       }, 0.2
     }, 0.2
+  end
+
+  def swipe_left
+    close(lambda {app_delegate.open 'p5'})
+  end
+
+  def swipe_right
+    close(lambda {super})
   end
 
   def apps_at(origin, name)

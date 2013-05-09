@@ -84,4 +84,8 @@ class P3ViewController <RViewController
     close(lambda {app_delegate.open 'p4'})
   end
 
+  def swipe_right
+    close(lambda {super})
+  end
+
 end

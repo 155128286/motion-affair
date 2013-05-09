@@ -2,9 +2,9 @@ class RSegmentedControl <UIControl
 
   attr_accessor :selected_index
 
-  VISUAL_OFFSET = 1
-  ANIMATION_OFFSET = 40
-  OFFSET_DURATION = 0.2
+  VISUAL_OFFSET = 0
+  ANIMATION_OFFSET = 10
+  OFFSET_DURATION = 0.15
 
   FIRST = 0
   SECOND = 1
