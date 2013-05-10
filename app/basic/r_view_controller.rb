@@ -2,7 +2,7 @@ class RViewController <UIViewController
 
   def loadView
     super
-    self.view.backgroundColor = 0x393939.uicolor
+    self.view.backgroundColor = UIColor.viewFlipsideBackgroundColor
 
     self.view.on_swipe(direction:UISwipeGestureRecognizerDirectionLeft) { |swipe|
       swipe_left
