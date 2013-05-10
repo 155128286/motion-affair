@@ -1,5 +1,7 @@
 class EndViewController <RViewController
 
+  # TODO : Skull designed by Cameron Pinegar from The Noun Project
+
   def loadView
     super
 

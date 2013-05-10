@@ -1,20 +1,11 @@
 class P9ViewController <RViewController
-  # TODO: viewWillDisappear
-  # 1. All Ruby Part of Rubymotion are Open Source
 
-  # 2. Rubymotion TODOs:
-  # 2.1 High level debug support
-  # 2.2 Improve tool chain
-  # 2.3 RubyMine Integration
-
-  # 3. Rubymotion 2.0
-  # 3.1 OS X support
-  # 3.2 Template for iOS, OSX or RubyGem
-  # 3.3 Incoming template for Games based on Cocos2d
-  # 3.4 WeakRef.new
+  # 1. Obj-C repos -> Cocoapods -> motion-cocoapods -> Rubymotion
+  # 2. Runtime Crash (AddressBook, CoreLocation, UITextField)
+  # 3. Clang vs Rubymotion - ARCLite (PSTCollectionView)
 
   def swipe_left
-    app_delegate.open 'end'
+    app_delegate.open 'p9'
   end
 
 end
