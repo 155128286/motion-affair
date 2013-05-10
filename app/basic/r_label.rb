@@ -22,6 +22,14 @@ class RLabel <UILabel
     label
   end
 
+  def self.font
+    'Courier'.uifont 40
+  end
+
+  def self.bold_font
+    'Courier'.uifont 32
+  end
+
   def font_size=(size)
     self.font = 'Courier'.uifont size
   end
