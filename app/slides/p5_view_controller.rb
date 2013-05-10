@@ -20,8 +20,13 @@ class P5ViewController <RViewController
 
     @third = UIView.alloc.initWithFrame content_frame
     @third.alpha = 0
-    layout_third
+    @third.on_tap {
+      third_change_content
+    }
     self.view << @third
+
+    @third_content = 0
+    layout_third
 
     @second = UIView.alloc.initWithFrame content_frame
     @second.alpha = 0
@@ -50,7 +55,55 @@ class P5ViewController <RViewController
   end
 
   def layout_third
+    @ruby_code = UIView.alloc.initWithFrame [[49, 172], [376, 122]]
+    @ruby_code.alpha = 0.0
+    @third << @ruby_code
 
+    @llvm_code = UIView.alloc.initWithFrame [[49, 366], [376, 330]]
+    @llvm_code.alpha = 0.0
+    @third << @llvm_code
+
+    @assm_code = UIView.alloc.initWithFrame [[480, 172], [500, 778]]
+    @assm_code.alpha = 0.0
+    @third << @assm_code
+
+    layout_code_sample @ruby_code, '1. Ruby code', 'ruby_code.png'
+    layout_code_sample @llvm_code, '2. LLVM bitcode', 'llvm_code.png'
+    layout_code_sample @assm_code, '3. Assembly code', 'assembly_code.png'
+  end
+
+  def layout_code_sample(code, text, image)
+    label = RLabel.bold_label_at [[0, 0], [500, 50]], text, 32
+    label.textAlignment = NSTextAlignmentLeft
+    image = image.uiimage
+    code_view = RImageView.image_view_at [[0, 58], image.size], image
+    code << label
+    code << code_view
+  end
+
+  def third_change_content
+    if @third_content < 3
+      @third_content += 1
+    else
+      @third_content = 1
+    end
+
+    case @third_content
+      when 1
+        @ruby_code.change_alpha 1.0
+        @llvm_code.change_alpha 0.0
+        @assm_code.change_alpha 0.0
+      when 2
+        @ruby_code.change_alpha 1.0
+        @llvm_code.change_alpha 1.0
+        @assm_code.change_alpha 0.0
+      when 3
+        @ruby_code.change_alpha 1.0
+        @llvm_code.change_alpha 1.0
+        @assm_code.change_alpha 1.0
+      else
+        # do nothing
+    end
   end
 
   def layout_second
